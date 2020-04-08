@@ -1,0 +1,12 @@
+Source: intelli-cursor
+Maintainer: Daniel Roy Barman <dxr3977@rit.edu>
+Build-Depends: debhelper,dh-python,python3-all,python3-setuptools
+Section: devel
+Priority: optional
+Standards-Version: 3.9.6
+X-Python3-Version: >= 3.6
+
+Package: intelli-cursor
+Architecture: any
+Description: Capstone project
+Depends: ${python3:Depends},python3-requests,libdlib18,python3-matplotlib,python3-opencv,python3-dateutil,python3-sklearn,python3-scipy,python3-pillow,python3-numpy
