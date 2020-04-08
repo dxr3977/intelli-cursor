@@ -1,25 +1,31 @@
-from setuptools import setup, find_packages
+#!/bin/bash
 
-setup(
-    name='intellicursor',
-    version='0.22',
-    description='Capstone project',
-    url='http://github.com/dxr3977/intelli-cursor',
-    author='Daniel Roy Barman',
-    author_email='dxr3977@rit.edu',
-    license='MIT',
-    install_requires=['requests',
-                      'dlib',           ###?
-                      'matplotlib',
-                      'opencv-python',  ###?
-                      'python-dateutil',###?
-                      'scikit-learn',   ###?
-                      'scipy',
-                      'Pillow',         ###?
-                      'numpy'],
-    packages=find_packages(),
-    include_package_data=True,
-    entry_points=dict(
-        console_scripts=['intelli-cursor=src.main:main']
-    )
-)
+sudo apt update
+sudo apt install python3.6
+sudo apt install python3-pip
+pip3 install pyautogui
+pip3 install numpy
+pip3 install scipy
+pip3 install time
+pip3 install opencv-python
+pip3 install matplotlib
+pip3 install pillow
+pip3 install sklearn
+
+sh install_dlib.sh
+
+mkdir ~/intelli-cursor
+
+mkdir ~/intelli-cursor/src
+mkdir ~/intelli-cursor/src/data
+
+cp src/lines.csv ~/intelli-cursor/src/data/
+cp src/shape_predictor_68_face_landmarks.dat ~/intelli-cursor/src/data/
+cp src/data_fast_images_face_50000.csv ~/intelli-cursor/src/data/
+
+cp src/main.py ~/intelli-cursor/src/
+cp src/cursor_training.py ~/intelli-cursor/src/
+cp src/cursor_data_acquisitioner.py ~/intelli-cursor/src/
+
+echo "alias intelli-cursor=\"python3 ~/intelli-cursor/src/main.py\"" >> ~/.bashrc
+source ~/.bash_profile
